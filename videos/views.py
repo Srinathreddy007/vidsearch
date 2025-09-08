@@ -70,12 +70,12 @@ class VideoViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=["GET"], url_path="search")
     def search(self, request, pk=None):
         """
-        GET /api/videos/{id}/search/?q=When%20does%20...
+        GET /api/videos/{id}/search/?query=When%20does%20...
         Returns best segment(s) with timestamp & confidence.
         """
-        q = request.query_params.get("q ", "").strip()
+        q = request.query_params.get("query", "").strip()
         if not q:
-            return Response({"detail": "Missing query param 'q'."}, status=400)
+            return Response({"detail": "Missing query param 'query'."}, status=400)
 
         top_k = max(1, min(int(request.query_params.get("top_k", 1)), 10))
         video = self.get_object()
