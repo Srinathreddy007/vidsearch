@@ -2,7 +2,7 @@ import subprocess
 
 def get_duration_seconds(path: str) -> int:
     """
-    Return whole-second duration using ffprobe; 0 if failure.
+    Return whole second duration using ffprobe and returns 0 if failure.
     """
     try:
         out = subprocess.check_output(

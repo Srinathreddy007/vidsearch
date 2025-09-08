@@ -11,6 +11,8 @@ from .models import Video, Transcript, TranscriptSegment
 from .serializers import VideoSerializer  # from Step 1
 from .serializers import TranscriptSerializer, SearchResultSerializer
 from .nlp import transcribe_to_word_segments, rechunk_words, embed_texts, cosine_sim
+from .nlp import get_st_model
+
 
 class VideoViewSet(viewsets.ModelViewSet):
     """
@@ -42,7 +44,7 @@ class VideoViewSet(viewsets.ModelViewSet):
 
         # Build segments
         words= transcribe_to_word_segments(video.file.path, language="en")
-        print("words-->", words)
+        # print("words-->", words)
         chunks = rechunk_words(words, target_window_s=5.0, max_window_s=8.0)
         # print("chunks-->", chunks)
         if not chunks:
@@ -90,7 +92,6 @@ class VideoViewSet(viewsets.ModelViewSet):
         E = E / norms
 
         # Embed query (normalized)
-        from .nlp import get_st_model
         qv = get_st_model().encode([q], normalize_embeddings=True)[0]
         qv = np.asarray(qv, dtype=np.float32)
 

@@ -46,7 +46,6 @@ def transcribe_to_word_segments(video_path: str, language: str | None = None ):
 
         for segment in segments:
             for word in segment.words:
-                # faster_whisper Word objects expose the token text via `.word`
                 words.append({"start": float(word.start), "end": float(word.end), "text": word.word})
 
             if not words:
@@ -58,9 +57,11 @@ def transcribe_to_word_segments(video_path: str, language: str | None = None ):
         return []
 
     finally:
-        if not os.path.exists(wav_path):
-            raise OSError("Failed to remove temporary audio file")
-        os.remove(wav_path)
+        
+        try:
+            os.remove(wav_path)
+        except Exception:
+            pass
     
 # def rechunk_words(words, target_window_s: float = 5.0, max_window_s: float = 8.0):
 #     # pass

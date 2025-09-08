@@ -6,7 +6,7 @@ from .models import Video
 from .ffprobe import get_duration_seconds
 from .models import Transcript
 
-# 3 MINUTES DURATION LIMIT
+# 3 minute duration
 MAX_VIDEO_DURATION = 180
 ALLOWED_VIDEO_FORMATS = [".mp4", ".mov", ".mkv", ".webm", ".avi"]
 
@@ -26,7 +26,6 @@ class VideoSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         upload = validated_data.get("file")
-        # Ensure suffix is the lowercase extension string (e.g., ".mp4")
         suffix = os.path.splitext(getattr(upload, "name", ""))[1].lower()
 
         with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
@@ -56,7 +55,6 @@ class TranscriptSerializer(serializers.ModelSerializer):
         fields = ["id", "video", "language", "created_at"]
         
 class SearchResultSerializer(serializers.Serializer):
-    # What we return to the client for a match
     start = serializers.FloatField()
     end = serializers.FloatField()
     text = serializers.CharField()
