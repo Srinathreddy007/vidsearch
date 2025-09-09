@@ -2,6 +2,7 @@
 ## Steps to Run
 - download `ffmpeg` using the command `brew install ffmpeg` globally
 - run `requirements.txt` file using the command `pip3 install -r requirements.txt`
+- Run both client and server side applications and open url `http://localhost:5173/` in the browser to see the complete working application
   
 ## Approach
 I have built a Django REST Framework API as the backend for Video Search.
