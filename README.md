@@ -41,7 +41,7 @@ The system is designed to be API-first, so any frontend (React, mobile, etc.) ca
 - **Cosine similarity using NumPy** --> Simple in-memory search works for small datasets. For larger deployments, a vector database would be required.  
 - **Frame extraction using FFmpeg** --> Provides a visual cue to improve UX.
 
-## ⚖ Trade-offs
+## Trade-offs
 
 - **Accuracy vs Speed** --> I used Whisper *small* is fast enough for short clips but not as accurate as *medium* or *large*. We chose it for performance in a take-home assignment.  
 - **Storage Simplicity vs Scale** --> JSONField embeddings in SQLite are easy to implement, but not scalable. A vector DB would be better in real-world use.  
