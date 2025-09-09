@@ -49,6 +49,14 @@ The system is designed to be API-first, so any frontend (React, mobile, etc.) ca
 - **Synchronous Processing** --> Transcription currently blocks the request. For production, we can use WebSockets or polling to make Trascriptions run asynchronously.  
 - **Security** --> We allow unauthenticated requests (`AllowAny`) for simplicity. In production, we would add JWT authentication, file size limits, and virus scanning.
 
+## Demo Pictures
+<img width="1151" height="515" alt="Pasted Graphic 1" src="https://github.com/user-attachments/assets/50757e5a-3160-4d99-ab86-cf6cef8f765c" />
+<img width="1252" height="684" alt="Pasted Graphic 2" src="https://github.com/user-attachments/assets/b989e907-cb02-4266-b784-83eecf59962b" />
+<img width="1234" height="753" alt="Pasted Graphic 3" src="https://github.com/user-attachments/assets/07c14034-ce09-47ca-90dc-7e7b92169a1c" />
+
+
+
+
 
 
 
