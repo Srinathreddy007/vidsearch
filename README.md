@@ -1,4 +1,8 @@
 # Video Search - Backend
+## Steps to Run
+- download `ffmpeg` using the command `brew install ffmpeg` globally
+- run `requirements.txt` file using the command `pip3 install -r requirements.txt`
+  
 ## Approach
 I have built a Django REST Framework API as the backend for Video Search.
 The system is designed to be API-first, so any frontend (React, mobile, etc.) can consume it. The backend handles three main responsibilities:
